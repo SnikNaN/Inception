@@ -24,6 +24,6 @@ EXPOSE 3306
 COPY requirements/mariadb/conf/create_db.sh .
 COPY requirements/mariadb/tools/wp.sql .
 RUN sh create_db.sh && rm create_db.sh
-RUN mysql -uroot -p$DB_ROOT_PASS $MYSQL_DATABASE < wp.sql && rm wp.sql
+#RUN mysql -uroot -p$DB_ROOT_PASS $MYSQL_DATABASE < wp.sql && rm wp.sql
 USER mysql
 CMD ["/usr/bin/mysqld", "--skip-log-error"]
