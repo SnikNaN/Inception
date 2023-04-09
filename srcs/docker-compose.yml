@@ -33,6 +33,10 @@ services:
     networks:
       - inception
     restart: always
+    volumes:
+      - db-volume:/var/lib/mysql
+    env_file:
+      - .env
 
   wordpress:
     build:
@@ -50,6 +54,8 @@ services:
       - inception
     volumes:
       - wp-volume:/var/www/
+    env_file:
+          - .env
 
 volumes:
   wp-volume:
